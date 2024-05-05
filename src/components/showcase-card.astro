@@ -8,7 +8,7 @@ export interface Props {
 
 const { site } = Astro.props;
 
-const widths = [450, 800];
+const widths = [10, 10];
 const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
 ---
 
@@ -28,7 +28,7 @@ const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
         <h3 class="text-center font-extrabold uppercase text-xl">
           {site.data.title}
         </h3>
-        <p class="border border-current px-4 py-2">{site.data.url}</p>
+        <!-- <p class="border border-current px-4 py-2">{site.data.url}</p> -->
       </div>
     </figcaption>
   </figure>
