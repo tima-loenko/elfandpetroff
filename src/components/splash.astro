@@ -7,8 +7,6 @@ import HeroImage from "~/components/hero-image.astro";
 import Starfield from "~/components/starfield.astro";
 import GitHubCorner from "./github-corner.astro";
 
-const widths = [450, 800];
-const sizes = "(min-width: 640px) 42vw, 67vw";
 ---
 
 <section class="relative h-full bg-black">
@@ -37,8 +35,8 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
       <Image
         class="h-full w-full object-cover"
         src={guysImage}
-        widths={widths}
-        sizes={sizes}
+        width={320}
+        height={350}
         loading="eager"
         alt="A floating astronaut in a space suit"
       />
