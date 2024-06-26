@@ -12,7 +12,7 @@ const orderedSites = featuredSites.sort(
 );
 ---
 
-<ContentSection title="Наши песни" id="showcase">
+<ContentSection title="Наши альбомы" id="showcase">
   <!-- <Fragment slot="lead">
     Astro is <span class="text-primary">versatile</span>.{" "}
     <span class="text-primary">Explore</span> what's possible and get{" "}
@@ -20,7 +20,7 @@ const orderedSites = featuredSites.sort(
   </Fragment> -->
   <div class="max-w-6xl space-y-2">
     <!-- <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"> -->
-    <div class="grid grid-cols-1 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       {orderedSites.map((site) => <ShowcaseCard site={site} />)}
     </div>
     <!-- <p class="text-right text-sm">
