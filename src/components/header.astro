@@ -6,9 +6,9 @@ import logoImage from "~/assets/logo.jpeg";
 import { Image } from "astro:assets";
 
 const navItems: Array<NavItem> = [
-  { title: "О группе", url: "#features" },
+  { title: "О группе", url: "/#about-band" },
   // { title: "Наши альбомы", url: "#compatibility" },
-  { title: "Наши альбомы", url: "#showcase" },
+  { title: "Наши альбомы", url: "/#albums" },
 ];
 ---
 
@@ -16,7 +16,7 @@ const navItems: Array<NavItem> = [
   id="page-header"
   class="absolute bottom-0 z-20 flex w-full items-center justify-between border-b border-transparent px-8 py-4 text-white"
 >
-  <a class="flex items-center gap-3 hover:!text-default" href="#">
+  <a class="flex items-center gap-3 hover:!text-default" href={Astro.url.pathname === '/' ? "#" : "/"}>
     <!-- <h1 class="sr-only">Astro</h1> -->
     <!-- <Icon name="logomark" class="size-10" />
     <Icon name="wordmark" class="hidden h-4 sm:block" /> -->
