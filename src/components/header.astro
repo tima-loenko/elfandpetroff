@@ -116,16 +116,24 @@ const navItems: Array<NavItem> = [
   openNavButton.addEventListener("click", openMenu);
   closeNavButton.addEventListener("click", closeMenu);
 
-  document.addEventListener("scroll", () => {
-    const d = page.clientHeight - page.scrollTop - header.offsetHeight;
-    header.classList.toggle("fixed-header", d < 0);
-  });
-
   menu.addEventListener("click", (event) => {
     if ((event.target as HTMLElement).tagName === "A") {
       closeMenu();
     }
   });
+
+  // динамика позиционирования хэдера
+  // если юзер на главной, то фиксировать хэдер вверху только после скролла
+  const currentLocation = new URL(window.location.href);
+  if (currentLocation.pathname === "/") {
+    document.addEventListener("scroll", () => {
+      const d = page.clientHeight - page.scrollTop - header.offsetHeight;
+      header.classList.toggle("fixed-header", d < 0);
+    });
+  } else {
+    // если юзер не на главной, то ставить класс fixed-header безусловно
+    header.classList.add("fixed-header");
+  }
 </script>
 
 <noscript>
