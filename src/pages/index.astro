@@ -1,74 +1,21 @@
 ---
-import "@fontsource-variable/inter";
-import Compatibility from "~/components/compatibility.astro";
-import Features from "~/components/features.astro";
-import Footer from "~/components/footer.astro";
-import Header from "~/components/header.astro";
-import Intro from "~/components/intro.astro";
-import Showcase from "~/components/showcase.astro";
+import Layout from "~/layouts/layout.astro";
 import Splash from "~/components/splash.astro";
-import "~/styles/index.css";
-
-const { generator, site } = Astro;
-const image = new URL("social.png", site);
-const description =
-  "Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.";
+import Intro from "~/components/intro.astro";
+import Features from "~/components/features.astro";
+import Compatibility from "~/components/compatibility.astro";
+import Showcase from "~/components/showcase.astro";
 ---
 
-<!doctype html>
-<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎸</text></svg>">
-    <meta name="generator" content={generator} />
+<Layout>
+  <!-- Start of the main page -->
+  <Splash />
 
-    <title>Эльф&Петроff</title>
-    <meta name="description" content={description} />
-
-    <!-- social media -->
-    <meta property="og:title" content="Astro" />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
-    <meta property="og:url" content={site} />
-    <meta name="twitter:card" content="summary_large_image" />
-
-    <!-- initialize theme -->
-    <script is:inline>
-      const themeSaved = localStorage.getItem("theme");
-
-      if (themeSaved) {
-        document.documentElement.dataset.theme = themeSaved;
-      } else {
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)",
-        ).matches;
-        document.documentElement.dataset.theme = prefersDark ? "dark" : "light";
-      }
-
-      window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .addEventListener("change", (event) => {
-          if (!localStorage.getItem("theme")) {
-            document.documentElement.dataset.theme = event.matches
-              ? "dark"
-              : "light";
-          }
-        });
-    </script>
-  </head>
-  <body
-    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
-  >
-    <Header />
-    <Splash />
-    <div class="space-y-24 px-8 py-32">
-      <Intro />
-      <Features />
-      <Compatibility />
-      <Showcase />
-    </div>
-    <!-- <Footer /> -->
-  </body>
-</html>
+  <div class="space-y-24 px-8 py-32">
+    <Intro />
+    <Features />
+    <Compatibility />
+    <Showcase />
+  </div>
+  <!-- End of the main page -->
+</Layout>
